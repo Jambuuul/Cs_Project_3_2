@@ -31,6 +31,11 @@ namespace project_3_2
         {
             Name = name;
             Country = country;
+            if (Math.Abs(latitude) > 180 || Math.Abs(longitude) > 180)
+            {
+                throw new ArgumentException("Некорректные координаты");
+            }
+
             Longitude = longitude;
             Latitude = latitude;
         }
