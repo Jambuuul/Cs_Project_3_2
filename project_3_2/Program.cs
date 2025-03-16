@@ -1,4 +1,13 @@
-﻿namespace project_3_2
+﻿
+/*
+ * Абдулов Джамал Олегович
+ * БПИ 248-1
+ * Пересдача проекта 3_2
+ * Вариант 5
+*/
+
+
+namespace project_3_2
 {
     internal class Program
     {
