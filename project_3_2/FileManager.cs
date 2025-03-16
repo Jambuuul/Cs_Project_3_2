@@ -12,11 +12,17 @@ namespace project_3_2
     /// </summary>
     public static class FileManager
     {
+        /// <summary>
+        /// Парсит файл в объект Cities
+        /// </summary>
+        /// <param name="path"> путь до файла</param>
+        /// <returns> города </returns>
+        /// <exception cref="ArgumentNullException"> при некорректном пути</exception>
         public static Cities ReadFile(string path)
         {
             if (path == null || !FileMethods.IsValidFullPath(path))
             {
-                throw new ArgumentNullException("""Некорректный путь""");
+                throw new ArgumentNullException("Некорректный путь");
             }
 
             string[] lines = File.ReadAllLines(path);
@@ -30,6 +36,8 @@ namespace project_3_2
                     cities.Add(city);
                 }
             }
+
+            return new Cities(cities);
 
         }
     }
