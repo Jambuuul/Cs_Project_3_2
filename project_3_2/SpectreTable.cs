@@ -29,6 +29,29 @@ namespace project_3_2
                     );
             }
             AnsiConsole.Write(table);
+
+            bool confirmation = AnsiConsole.Prompt(
+                new ConfirmationPrompt("Выбрать города из списка?"));
+
+            if (confirmation)
+            {
+                string name1 = AnsiConsole.Prompt(
+                    new TextPrompt<string>("Введите название первого города:"));
+
+                string name2 = AnsiConsole.Prompt(
+                    new TextPrompt<string>("Введите название второго города:"));
+
+                if (!cities.Contains(name1) || !cities.Contains(name2))
+                {
+                    Console.WriteLine("Как минимум, одного города в списке нет.");
+                } else
+                {
+                    Console.WriteLine($"Вы выбрали следующие города: {name1} и {name2}.\n" +
+                        $"В данный момент с ними нельзя ничего сделать, так как " +
+                        $"заданием это не предусмотрено.\n" +
+                        $"Просят только реализовать возможность выбора городов.\nНо зато вы можете их выбрать, полагаю...");
+                }
+            }
         }
     }
 }
