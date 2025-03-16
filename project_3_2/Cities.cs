@@ -52,5 +52,13 @@ namespace project_3_2
                 _ = _cities.Remove(name);
             }
         }
+
+        public void PrintInfo()
+        {
+            foreach ((_, City city) in _cities)
+            {
+                Console.WriteLine(city);
+            }
+        }
     }
 }

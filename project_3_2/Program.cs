@@ -20,6 +20,32 @@ namespace project_3_2
         /// </summary>
         public static void Main()
         {
+            Cities cities = new();
+
+            while (true)
+            {
+                try
+                {
+                    Console.Clear();
+                    Console.Write("Перед началом работы введите путь к файлу: ");
+                    string? input = Console.ReadLine();
+                    if (input == null)
+                    {
+                        Console.WriteLine("Некорректный путь!");
+                        AskForInput();
+                        continue;
+                    }
+
+                    cities = FileManager.ReadFile(input);
+                    break;
+                } catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    AskForInput();
+                    continue;
+                }
+            }
+
 
             while (true)
             {
@@ -30,7 +56,7 @@ namespace project_3_2
                 switch (input)
                 {
                     case "1":
-                        BaseTask.Run(); break;
+                        BaseTask.Run(ref cities); break;
                     case "2":
                         MainTask.Run(); break;
                     case "3":
@@ -42,8 +68,7 @@ namespace project_3_2
                         Console.WriteLine("Некорректная команда!");
                         break;
                 }
-                Console.WriteLine("Введите Enter для продолжения...");
-                _ = Console.ReadKey();
+                AskForInput();
             }
 
         }
@@ -60,6 +85,12 @@ namespace project_3_2
                 "4. Выход");
 
             Console.Write("Выберите опцию: ");
+        }
+
+        public static void AskForInput()
+        {
+            Console.WriteLine("Введите Enter для продолжения...");
+            _ = Console.ReadKey();
         }
     }
 }

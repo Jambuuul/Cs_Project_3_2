@@ -8,10 +8,11 @@ namespace project_3_2
 {
     public class BaseTask
     {
-        public static void Run()
+        public static void Run(ref Cities cities)
         {
             Console.Clear();
-            //string? s = Console.ReadLine();
+            
+            cities.PrintInfo();
         }
     }
 }

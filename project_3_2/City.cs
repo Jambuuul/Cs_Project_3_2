@@ -13,7 +13,9 @@ namespace project_3_2
     {
         public string Name { get; set; }
         public string Country { get; set; }
-        public int Population { get; set; }
+        
+        // -1, если данных нет
+        public int Population { get; set; } = -1;
 
         // TODO: проверка коррекнтости значений
         public double Longitude { get; set; }
@@ -31,7 +33,7 @@ namespace project_3_2
         {
             Name = name;
             Country = country;
-            if (Math.Abs(latitude) > 180 || Math.Abs(longitude) > 180)
+            if (Math.Abs(latitude) > 90 || Math.Abs(longitude) > 180)
             {
                 throw new ArgumentException("Некорректные координаты");
             }
@@ -71,7 +73,7 @@ namespace project_3_2
 
             // всего 4 или 5 параметров
 
-            if (str.Length < 4 || s.Length > 5)
+            if (str.Length < 4 || str.Length > 5)
             {
                 return false;
             }
@@ -96,6 +98,17 @@ namespace project_3_2
             city = new City(str[0], str[1], longitude, latitude);
             return true;
 
+        }
+
+        public override string ToString()
+        {
+
+            string s = $"Name: {Name}, Country: {Country}, Lat: {Latitude}, Long: {Longitude}";
+            if (Population >= 0)
+            {
+                s += $", Population: {Population}";
+            }
+            return s;
         }
     }
 
