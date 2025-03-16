@@ -8,6 +8,19 @@ namespace project_3_2
 {
     public class BaseTask
     {
+        public static void BaseMenu()
+        {
+            Console.WriteLine("Базовый функционал приложения:");
+            Console.WriteLine("" +
+                "1. Просмотр списка городов\n" +
+                "2. Добавление нового города\n" +
+                "3. Редактирование информации о городе\n" +
+                "4. Удаление города\n" +
+                "5. Выход в главное меню");
+
+            Console.Write("Выберите опцию: ");
+        }
+
         public static void Run(ref Cities cities)
         {
             while (true)
@@ -27,10 +40,10 @@ namespace project_3_2
                     case "3":
                         AdditionalTask.Run(); break;
                     case "4":
+                        DeleteCity(ref cities);
                         break;
                     case "5":
-                        System.Environment.Exit(0);
-                        break;
+                        return;
                     default:
                         Console.WriteLine("Некорректная команда!");
                         break;
@@ -52,19 +65,30 @@ namespace project_3_2
             cities.AddCity(city);
         }
 
-        
-
-        public static void BaseMenu()
+        public static void DeleteCity(ref Cities cities)
         {
-            Console.WriteLine("Базовый функционал приложения:");
-            Console.WriteLine("" +
-                "1. Просмотр списка городов\n" +
-                "2. Добавление нового города\n" +
-                "3. Редактирование информации о городе\n" +
-                "4. Удаление города\n" +
-                "5. Выход в главное меню");
+            Console.Clear();
+            Console.WriteLine("Введите название города, который хотите удалить:");
+            string? input = Console.ReadLine();
+            if (input == null)
+            {
+                Console.WriteLine("Некорректное имя!");
+                Program.AskForInput(); return;
+            }
 
-            Console.Write("Выберите опцию: ");
+            bool res = cities.RemoveCity(input);
+            if (res)
+            {
+                Console.WriteLine("Город успешно удален.");
+            } else
+            {
+                Console.WriteLine("Город отсутствует в списке.");
+            }
+            Program.AskForInput();
+            return;
+
         }
+
+        
     }
 }

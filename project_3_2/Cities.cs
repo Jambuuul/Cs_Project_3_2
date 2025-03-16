@@ -45,12 +45,11 @@ namespace project_3_2
 
         }
 
-        public void RemoveCity(string name)
+        public bool RemoveCity(string name)
         {
-            if ( _cities.ContainsKey(name) )
-            {
-                _ = _cities.Remove(name);
-            }
+            
+            return _cities.Remove(name);
+            
         }
 
         public void PrintInfo()
