@@ -6,11 +6,41 @@ using System.Threading.Tasks;
 
 namespace project_3_2
 {
-    public class MainTask
+    public static class MainTask
     {
-        public static void Run()
+        public static void MainTaskMenu()
         {
+            Console.WriteLine("Основной функционал:");
+            Console.WriteLine("" +
+                "1. Визуализация таблицы с помощью Spectre\n" +
+                "2. Отображение города на карте\n" +
+                "3. Выход в главное меню");
 
+            Console.Write("Выберите опцию: ");
+        }
+        public static void Run(ref Cities cities)
+        {
+            while (true)
+            {
+                Console.Clear();
+                MainTaskMenu();
+                string? input = Console.ReadLine();
+
+                switch (input)
+                {
+                    case "1":
+                        SpectreTable.Run(ref cities);
+                        Program.AskForInput(); break;
+                    case "2":
+                        break;
+                    case "3":
+                        return;
+                    default:
+                        Console.WriteLine("Некорректная команда!");
+                        Program.AskForInput();
+                        continue;
+                }
+            }
         }
     }
 }

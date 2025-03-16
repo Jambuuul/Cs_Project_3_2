@@ -20,20 +20,25 @@ namespace project_3_2
         /// </summary>
         public static void Main()
         {
-            Cities cities = new();
+            Cities cities;
 
             while (true)
             {
                 try
                 {
                     Console.Clear();
-                    Console.Write("Перед началом работы введите путь к файлу: ");
+                    Console.Write("Перед началом работы введите путь к файлу,\n" +
+                        "или пустую строку для выхода: ");
                     string? input = Console.ReadLine();
                     if (input == null)
                     {
                         Console.WriteLine("Некорректный путь!");
                         AskForInput();
                         continue;
+                    }
+                    if (input == "")
+                    {
+                        System.Environment.Exit(0);
                     }
 
                     cities = FileManager.ReadFile(input);
@@ -58,7 +63,7 @@ namespace project_3_2
                     case "1":
                         BaseTask.Run(ref cities); break;
                     case "2":
-                        MainTask.Run(); break;
+                        MainTask.Run(ref cities); break;
                     case "3":
                         AdditionalTask.Run(); break;
                     case "4":

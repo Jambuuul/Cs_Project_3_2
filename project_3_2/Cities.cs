@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +8,7 @@ using System.Xml.Linq;
 
 namespace project_3_2
 {
-    public class Cities
+    public class Cities : IEnumerable<City>
     {
         private readonly  Dictionary<string, City> _cities;
 
@@ -101,12 +102,15 @@ namespace project_3_2
             
         }
 
-        public void PrintInfo()
+
+        public IEnumerator<City> GetEnumerator()
         {
-            foreach ((_, City city) in _cities)
-            {
-                Console.WriteLine(city);
-            }
+            return _cities.Values.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return _cities.Values.GetEnumerator();
         }
     }
 }

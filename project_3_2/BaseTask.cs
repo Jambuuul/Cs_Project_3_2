@@ -33,7 +33,12 @@ namespace project_3_2
                 {
                     case "1":
                         Console.Clear();
-                        cities.PrintInfo();
+
+                        foreach (City city in cities)
+                        {
+                            Console.WriteLine(city);
+                        }
+
                         Program.AskForInput(); break;
                     case "2":
                         AddCity(ref cities); ; break;
