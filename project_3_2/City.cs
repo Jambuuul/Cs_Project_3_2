@@ -48,10 +48,54 @@ namespace project_3_2
         /// <param name="population"></param>
         /// <param name="longitude"></param>
         /// <param name="latitude"></param>
-        public City(string name, string country, int population, double longitude, double latitude)
+        public City(string name, string country, double longitude, double latitude, int population)
             : this(name, country, longitude, latitude)
         {
             Population = population;
+        }
+
+
+        /// <summary>
+        /// Парсит строку в City
+        /// </summary>
+        /// <param name="s"> строка </param>
+        /// <returns> город </returns>
+        public static bool TryParse(string s, out City? city)
+        {
+            city = null;
+            if (!s.Contains(';'))
+            {
+                return false;
+            }
+            string[] str = s.Split(';');
+
+            // всего 4 или 5 параметров
+
+            if (str.Length < 4 || s.Length > 5)
+            {
+                return false;
+            }
+
+            if (!double.TryParse(str[2], out double latitude) ||
+                !double.TryParse(str[3], out double longitude))
+            {
+                return false;
+            }
+
+            if (str.Length == 5)
+            {
+                if (!int.TryParse(str[4], out int population))
+                {
+                    return false;
+                }
+
+                city = new City(str[0], str[1], longitude, latitude, population);
+                return true;
+            }
+
+            city = new City(str[0], str[1], longitude, latitude);
+            return true;
+
         }
     }
 

@@ -14,7 +14,14 @@ namespace project_3_2
     {
         public static Cities ReadFile(string path)
         {
-            if (!IsValidFullPath)
+            if (path == null || !FileMethods.IsValidFullPath(path))
+            {
+                Console.WriteLine("Некорректный путь");
+            }
+
+            string[] lines = File.ReadAllLines(path);
+
+
 
         }
     }
