@@ -73,7 +73,7 @@ namespace project_3_2
 
             // всего 4 или 5 параметров
 
-            if (str.Length < 4 || str.Length > 5)
+            if (str.Length is < 4 or > 5)
             {
                 return false;
             }

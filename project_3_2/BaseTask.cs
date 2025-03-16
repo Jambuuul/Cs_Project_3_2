@@ -38,7 +38,7 @@ namespace project_3_2
                     case "2":
                         AddCity(ref cities); ; break;
                     case "3":
-                        AdditionalTask.Run(); break;
+                        RedactCity(ref cities); break;
                     case "4":
                         DeleteCity(ref cities);
                         break;
@@ -46,9 +46,54 @@ namespace project_3_2
                         return;
                     default:
                         Console.WriteLine("Некорректная команда!");
-                        break;
+                        Program.AskForInput();
+                        continue;
                 }
             }
+        }
+
+        public static void RedactCity(ref Cities cities)
+        {
+            Console.Write("Введите имя города:");
+            string? name = Console.ReadLine();
+            if (name == null || !cities.Contains(name))
+            {
+                Console.WriteLine($"Город {name} отсутствует в списке");
+                Program.AskForInput();
+                return;
+            }
+
+            Console.WriteLine("Вводите новые параметры.\n" +
+                " Если не хотите задавать конкретный, просто нажмите Enter.");
+
+            Console.Write("Введите новую страну: ");
+            string? country = Console.ReadLine() ?? "";
+
+            Console.Write("Введите широту: ");
+            string? lat = Console.ReadLine() ?? "";
+
+            Console.Write("Введите долготу:");
+            string? lon = Console.ReadLine() ?? "";
+
+            Console.Write("Введите население: ");
+            string? pop = Console.ReadLine() ?? "";
+
+            
+
+            bool res = cities.RedactCity(name, country, lat, lon, pop);
+
+            if (res)
+            {
+                Console.WriteLine("Редактирование прошло успешно.");
+
+            }
+            else
+            {
+                Console.WriteLine("Редактирование не удалось.");
+            }
+
+            Program.AskForInput();
+            return;
         }
 
         public static void AddCity(ref Cities cities)
