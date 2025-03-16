@@ -16,12 +16,20 @@ namespace project_3_2
         {
             if (path == null || !FileMethods.IsValidFullPath(path))
             {
-                Console.WriteLine("Некорректный путь");
+                throw new ArgumentNullException("""Некорректный путь""");
             }
 
             string[] lines = File.ReadAllLines(path);
 
+            List<City> cities = [];
 
+            foreach (string line in lines)
+            {
+                if (City.TryParse(line, out City? city) && city is not null)
+                {
+                    cities.Add(city);
+                }
+            }
 
         }
     }
