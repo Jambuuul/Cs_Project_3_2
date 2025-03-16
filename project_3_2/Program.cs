@@ -3,13 +3,14 @@
  * Абдулов Джамал Олегович
  * БПИ 248-1
  * Пересдача проекта 3_2
+ * B-side
  * Вариант 5
 */
 
 
 namespace project_3_2
 {
-    internal class Program
+    public class Program
     {
         public static void Main()
         {

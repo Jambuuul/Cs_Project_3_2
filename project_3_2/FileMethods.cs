@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 namespace project_3_2
 {
     /// <summary>
-    /// Статический класс с методами обработки файлов
+    /// Статический класс с методами для работы с файлами
     /// </summary>
-    internal static class FileMethods
+    public static class FileMethods
     {
         /// <summary>
         /// Проверяет путь до файла на корректность
