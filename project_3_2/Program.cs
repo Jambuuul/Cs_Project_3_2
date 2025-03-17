@@ -8,6 +8,8 @@
 */
 
 
+using project_3_2.Menus;
+
 namespace project_3_2
 {
     /// <summary>
@@ -65,7 +67,7 @@ namespace project_3_2
                     case "2":
                         MainTask.Run(ref cities); break;
                     case "3":
-                        AdditionalTask.Run(); break;
+                        AdditionalTask.Run(ref cities); break;
                     case "4":
                         System.Environment.Exit(0);
                         break;

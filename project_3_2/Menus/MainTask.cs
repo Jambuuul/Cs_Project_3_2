@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Spectre.Console;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace project_3_2
+namespace project_3_2.Menus
 {
     public static class MainTask
     {
@@ -42,5 +43,7 @@ namespace project_3_2
                 }
             }
         }
+
+
     }
 }

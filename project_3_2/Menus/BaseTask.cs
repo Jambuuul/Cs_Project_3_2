@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace project_3_2
+namespace project_3_2.Menus
 {
     public class BaseTask
     {
@@ -83,7 +83,7 @@ namespace project_3_2
             Console.Write("Введите население: ");
             string? pop = Console.ReadLine() ?? "";
 
-            
+
 
             bool res = cities.RedactCity(name, country, lat, lon, pop);
 
@@ -130,7 +130,8 @@ namespace project_3_2
             if (res)
             {
                 Console.WriteLine("Город успешно удален.");
-            } else
+            }
+            else
             {
                 Console.WriteLine("Город отсутствует в списке.");
             }
@@ -139,6 +140,6 @@ namespace project_3_2
 
         }
 
-        
+
     }
 }
