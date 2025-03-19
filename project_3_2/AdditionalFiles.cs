@@ -15,7 +15,7 @@ namespace project_3_2
                 "1. Экспорт CSV\n" +
                 "2. Экспорт JSON\n" +
                 "3. Импорт CSV\n" +
-                "4. Экспорт JSON\n" +
+                "4. Импорт JSON\n" +
                 "5. Выход");
 
             Console.Write("Выберите опцию: ");

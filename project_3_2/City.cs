@@ -106,6 +106,20 @@ namespace project_3_2
             return s;
         }
 
+        public string ToJsonObject()
+        {
+            StringBuilder sb = new();
+            _ = sb.Append('{');
+            _ = sb.Append($"Name : {Name}," +
+                          $"Country: {Country}," +
+                          $"Latitude: {Latitude}," +
+                          $"Longitude: {Longitude}," +
+                          $"Population: {Population}");
+            _ = sb.Append('}');
+
+            return sb.ToString();
+        }
+
         public override string ToString()
         {
 
