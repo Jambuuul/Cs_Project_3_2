@@ -100,6 +100,12 @@ namespace project_3_2
 
         }
 
+        public string ToCsvString()
+        {
+            string s = $"{Name};{Country};{Latitude};{Longitude};{Population}";
+            return s;
+        }
+
         public override string ToString()
         {
 

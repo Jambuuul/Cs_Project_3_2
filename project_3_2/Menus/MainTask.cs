@@ -33,6 +33,8 @@ namespace project_3_2.Menus
                         SpectreTable.Run(ref cities);
                         Program.AskForInput(); break;
                     case "2":
+                        MapViewer.Run();
+                        Program.AskForInput();
                         break;
                     case "3":
                         return;

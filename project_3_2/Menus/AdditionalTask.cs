@@ -16,10 +16,11 @@ namespace project_3_2.Menus
                 "1. OpenStreetMap\n" +
                 "2. Погода\n" +
                 "3. Импорт/экспорт\n" +
-                "4. Выход в главноем меню");
+                "4. Выход в главное меню");
 
             Console.Write("Выберите опцию: ");
         }
+
         public static void Run(ref Cities cities)
         {
             while (true)
@@ -31,13 +32,15 @@ namespace project_3_2.Menus
                 switch (input)
                 {
                     case "1":
-                        // smth
+                        
                         Program.AskForInput(); break;
                     case "2":
                         // TODO: починить асинхронность
                         WeatherInfo();
                         Program.AskForInput(); break;
                     case "3":
+                        AdditionalFiles.Run(ref cities);
+                        Program.AskForInput();
                         break;
                     case "4":
                         return;
