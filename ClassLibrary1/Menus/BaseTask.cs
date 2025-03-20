@@ -1,10 +1,11 @@
-﻿using System;
+﻿using ProjectLib;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace project_3_2.Menus
+namespace ProjectLib
 {
     public class BaseTask
     {
@@ -40,7 +41,7 @@ namespace project_3_2.Menus
                             Console.WriteLine(city);
                         }
 
-                        Program.AskForInput(); break;
+                        FileMethods.AskForInput(); break;
                     case "2":
                         AddCity(ref cities); ; break;
                     case "3":
@@ -51,13 +52,13 @@ namespace project_3_2.Menus
                     case "5":
                         FileManager.SaveToFile(path, cities);
                         Console.WriteLine("Файл успешно сохранен!");
-                        Program.AskForInput(); 
+                        FileMethods.AskForInput(); 
                         break;
                     case "6":
                         return;
                     default:
                         Console.WriteLine("Некорректная команда!");
-                        Program.AskForInput();
+                        FileMethods.AskForInput();
                         continue;
                 }
             }
@@ -70,7 +71,7 @@ namespace project_3_2.Menus
             if (name == null || !cities.Contains(name))
             {
                 Console.WriteLine($"Город {name} отсутствует в списке");
-                Program.AskForInput();
+                FileMethods.AskForInput();
                 return;
             }
 
@@ -103,7 +104,7 @@ namespace project_3_2.Menus
                 Console.WriteLine("Редактирование не удалось.");
             }
 
-            Program.AskForInput();
+            FileMethods.AskForInput();
             return;
         }
 
@@ -115,7 +116,7 @@ namespace project_3_2.Menus
             if (input == null || !City.TryParse(input, out City? city) || city is null)
             {
                 Console.WriteLine("Ошибка при добавлении города!");
-                Program.AskForInput();
+                FileMethods.AskForInput();
                 return;
             }
             cities.AddCity(city);
@@ -129,7 +130,7 @@ namespace project_3_2.Menus
             if (input == null)
             {
                 Console.WriteLine("Некорректное имя!");
-                Program.AskForInput(); return;
+                FileMethods.AskForInput(); return;
             }
 
             bool res = cities.RemoveCity(input);
@@ -141,7 +142,7 @@ namespace project_3_2.Menus
             {
                 Console.WriteLine("Город отсутствует в списке.");
             }
-            Program.AskForInput();
+            FileMethods.AskForInput();
             return;
 
         }

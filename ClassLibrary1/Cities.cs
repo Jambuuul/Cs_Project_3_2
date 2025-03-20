@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectLib;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace project_3_2
+namespace ProjectLib
 {
     public class Cities : IEnumerable<City>
     {

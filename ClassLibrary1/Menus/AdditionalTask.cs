@@ -1,11 +1,12 @@
-﻿using Spectre.Console;
+﻿using ProjectLib;
+using Spectre.Console;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace project_3_2.Menus
+namespace ProjectLib
 {
     public class AdditionalTask
     {
@@ -33,20 +34,20 @@ namespace project_3_2.Menus
                 {
                     case "1":
                         
-                        Program.AskForInput(); break;
+                        FileMethods.AskForInput(); break;
                     case "2":
                         // TODO: починить асинхронность
                         WeatherInfo();
-                        Program.AskForInput(); break;
+                        FileMethods.AskForInput(); break;
                     case "3":
                         AdditionalFiles.Run(ref cities);
-                        Program.AskForInput();
+                        FileMethods.AskForInput();
                         break;
                     case "4":
                         return;
                     default:
                         Console.WriteLine("Некорректная команда!");
-                        Program.AskForInput();
+                        FileMethods.AskForInput();
                         continue;
                 }
             }

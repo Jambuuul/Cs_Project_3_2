@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace project_3_2
+
+namespace ProjectLib
 {
     public static class AdditionalFiles
     {
@@ -33,21 +34,21 @@ namespace project_3_2
                 {
                     case "1":
                         WriteToCsv(ref cities);
-                        Program.AskForInput(); break;
+                        FileMethods.AskForInput(); break;
                     case "2":
                         WriteToJson(ref cities);
-                        Program.AskForInput();
+                        FileMethods.AskForInput();
                         break;
                     case "3":
                         ReadCsv(ref cities);
-                        Program.AskForInput(); break;
+                        FileMethods.AskForInput(); break;
                     case "4":
                         break;
                     case "5":
                         return;
                     default:
                         Console.WriteLine("Некорректная команда!");
-                        Program.AskForInput();
+                        FileMethods.AskForInput();
                         continue;
                 }
             }
@@ -120,7 +121,7 @@ namespace project_3_2
                     if (input == null)
                     {
                         Console.WriteLine("Некорректный путь!");
-                        Program.AskForInput();
+                        FileMethods.AskForInput();
                         continue;
                     }
 
@@ -129,7 +130,7 @@ namespace project_3_2
                 catch (Exception e)
                 {
                     Console.WriteLine(e.Message);
-                    Program.AskForInput();
+                    FileMethods.AskForInput();
                     continue;
                 }
             }

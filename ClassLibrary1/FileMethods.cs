@@ -6,7 +6,7 @@ using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace project_3_2
+namespace ProjectLib
 {
     /// <summary>
     /// Статический класс с методами для работы с файлами
@@ -38,6 +38,12 @@ namespace project_3_2
             }
         }
 
-        
+        public static void AskForInput()
+        {
+            Console.WriteLine("Введите Enter для продолжения...");
+            _ = Console.ReadKey();
+        }
+
+
     }
 }

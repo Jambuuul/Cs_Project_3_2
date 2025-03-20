@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectLib;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Text;
 using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 
-namespace project_3_2
+namespace ProjectLib
 {
     /// <summary>
     /// Класс, отвечающий за чтение/запись файлов

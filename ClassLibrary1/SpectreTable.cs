@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Spectre.Console;
 
-namespace project_3_2
+namespace ProjectLib
 {
     public static class SpectreTable
     {

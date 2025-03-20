@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace project_3_2
+namespace ProjectLib
 {
     public struct WeatherData
     {

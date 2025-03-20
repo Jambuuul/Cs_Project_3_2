@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace project_3_2
+namespace ProjectLib
 {
     /// <summary>
     /// Класс, хранящий информацию о городе
@@ -13,7 +13,7 @@ namespace project_3_2
     {
         public string Name { get; set; }
         public string Country { get; set; }
-        
+
         // -1, если данных нет
         public int Population { get; set; } = -1;
 

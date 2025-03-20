@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace project_3_2.Menus
+namespace ProjectLib
 {
     public static class MainTask
     {
@@ -31,16 +31,16 @@ namespace project_3_2.Menus
                 {
                     case "1":
                         SpectreTable.Run(ref cities);
-                        Program.AskForInput(); break;
+                        FileMethods.AskForInput(); break;
                     case "2":
                         MapViewer.Run(ref cities);
-                        Program.AskForInput();
+                        FileMethods.AskForInput();
                         break;
                     case "3":
                         return;
                     default:
                         Console.WriteLine("Некорректная команда!");
-                        Program.AskForInput();
+                        FileMethods.AskForInput();
                         continue;
                 }
             }

@@ -8,7 +8,7 @@
 */
 
 
-using project_3_2.Menus;
+using ProjectLib;
 
 namespace project_3_2
 {
