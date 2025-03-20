@@ -24,13 +24,12 @@ namespace ProjectLib
             {
                 // вызывет исключение, если путь неправильный
                 string fullPath = Path.GetFullPath(path);
-                if (File.Exists(fullPath)) 
+                if (File.Exists(fullPath) || Path.IsPathRooted(fullPath)) 
                 {
                     return true;
                 }
 
-                File.WriteAllText(fullPath, string.Empty);
-                return true;
+                return false;
             }
             catch (Exception)
             {
