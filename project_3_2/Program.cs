@@ -82,6 +82,9 @@ namespace project_3_2
 
         }
 
+        /// <summary>
+        /// Выводит меню
+        /// </summary>
         public static void PrintMenu()
         {
             Console.WriteLine("Добро пожаловать в приложение City Manager!\n" +
@@ -96,6 +99,9 @@ namespace project_3_2
             Console.Write("Выберите опцию: ");
         }
 
+        /// <summary>
+        /// Запрашивает у пользователя ввод для продолжения
+        /// </summary>
         public static void AskForInput()
         {
             Console.WriteLine("Введите Enter для продолжения...");

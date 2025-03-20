@@ -100,12 +100,20 @@ namespace ProjectLib
 
         }
 
+        /// <summary>
+        /// Возвращает информацию о городах в формате CSV
+        /// </summary>
+        /// <returns> строка </returns>
         public string ToCsvString()
         {
             string s = $"{Name};{Country};{Latitude};{Longitude};{Population}";
             return s;
         }
 
+        /// <summary>
+        /// Возвращает информацию о городах в формате JSON
+        /// </summary>
+        /// <returns> строка </returns>
         public string ToJsonObject()
         {
             StringBuilder sb = new();
@@ -120,6 +128,10 @@ namespace ProjectLib
             return sb.ToString();
         }
 
+        /// <summary>
+        /// Для вывода в консоль 
+        /// </summary>
+        /// <returns> строка </returns>
         public override string ToString()
         {
 

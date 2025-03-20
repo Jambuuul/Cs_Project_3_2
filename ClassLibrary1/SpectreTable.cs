@@ -8,8 +8,15 @@ using Spectre.Console;
 
 namespace ProjectLib
 {
+    /// <summary>
+    /// Статический класс для задния с выводом красивой таблицы
+    /// </summary>
     public static class SpectreTable
     {
+        /// <summary>
+        /// Запуск
+        /// </summary>
+        /// <param name="cities"> города </param>
         public static void Run(ref Cities cities)
         {
             Console.Clear();

@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace ProjectLib
 {
+    /// <summary>
+    /// Структура для данных о погоде
+    /// </summary>
     public struct WeatherData
     {
         [JsonPropertyName("main")]
@@ -18,6 +21,9 @@ namespace ProjectLib
         [JsonPropertyName("name")]
         public string Name { get; set; }
 
+        /// <summary>
+        /// Структура основных данных
+        /// </summary>
         public struct MainData
         {
             [JsonPropertyName("temp")]
@@ -27,6 +33,9 @@ namespace ProjectLib
             public int Humidity { get; set; }
         }
 
+        /// <summary>
+        /// Структура для описания погоды
+        /// </summary>
         public struct WeatherDescription
         {
             [JsonPropertyName("main")]

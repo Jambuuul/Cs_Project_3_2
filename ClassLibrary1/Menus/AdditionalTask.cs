@@ -8,8 +8,14 @@ using System.Threading.Tasks;
 
 namespace ProjectLib
 {
-    public class AdditionalTask
+    /// <summary>
+    /// Класс для доп части
+    /// </summary>
+    public static class AdditionalTask
     {
+        /// <summary>
+        /// Меню
+        /// </summary>
         public static void AddTaskMenu()
         {
             Console.WriteLine("Дополнительныйф функционал:");
@@ -22,6 +28,10 @@ namespace ProjectLib
             Console.Write("Выберите опцию: ");
         }
 
+        /// <summary>
+        /// Запуск
+        /// </summary>
+        /// <param name="cities"> города </param>
         public static void Run(ref Cities cities)
         {
             while (true)
@@ -53,6 +63,9 @@ namespace ProjectLib
             }
         }
 
+        /// <summary>
+        /// Выводит информацию о погоде
+        /// </summary>
         public static void WeatherInfo()
         {
             string name = AnsiConsole.Prompt(

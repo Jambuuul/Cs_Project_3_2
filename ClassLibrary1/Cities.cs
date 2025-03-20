@@ -9,17 +9,25 @@ using System.Xml.Linq;
 
 namespace ProjectLib
 {
+    /// <summary>
+    /// Класс городов
+    /// </summary>
     public class Cities : IEnumerable<City>
     {
         private readonly  Dictionary<string, City> _cities;
 
-        
-
+        /// <summary>
+        /// Пустой конструктор
+        /// </summary>
         public Cities()
         {
             _cities = [];
         }
 
+        /// <summary>
+        /// Конструктор на основе коллекции городов
+        /// </summary>
+        /// <param name="cities"> список городов </param>
         public Cities(IEnumerable<City> cities) : this()
         {
             foreach (City city in cities)
@@ -32,6 +40,10 @@ namespace ProjectLib
             }
         }
 
+        /// <summary>
+        /// добавление города
+        /// </summary>
+        /// <param name="city"> город </param>
         public void AddCity(City city)
         {
             // TODO: создавать класс города внутри
@@ -43,6 +55,15 @@ namespace ProjectLib
             }
         }
 
+        /// <summary>
+        /// Редактирование города по названию
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="country"></param>
+        /// <param name="lat"></param>
+        /// <param name="lon"></param>
+        /// <param name="pop"></param>
+        /// <returns> true, если удалось</returns>
         public bool RedactCity(string name, string country, string lat, string lon, string pop)
         {
             if (!Contains(name))
@@ -92,11 +113,21 @@ namespace ProjectLib
             }
         }
 
+        /// <summary>
+        /// Находится ли город в списке
+        /// </summary>
+        /// <param name="name"> имя города </param>
+        /// <returns>true, если да</returns>
         public bool Contains(string name)
         {
             return _cities.ContainsKey(name);
         }
 
+        /// <summary>
+        /// Удаление города по названию
+        /// </summary>
+        /// <param name="name"> название </param>
+        /// <returns>true, если удалось</returns>
         public bool RemoveCity(string name)
         {
             
@@ -104,12 +135,19 @@ namespace ProjectLib
             
         }
 
-
+        /// <summary>
+        /// Возвращает итератор
+        /// </summary>
+        /// <returns>итератор</returns>
         public IEnumerator<City> GetEnumerator()
         {
             return _cities.Values.GetEnumerator();
         }
 
+        /// <summary>
+        /// Возвращает итератор
+        /// </summary>
+        /// <returns>итератор</returns>
         IEnumerator IEnumerable.GetEnumerator()
         {
             return _cities.Values.GetEnumerator();

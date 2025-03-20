@@ -43,6 +43,12 @@ namespace ProjectLib
 
         }
 
+        /// <summary>
+        /// Сохранение в файл в формате .txt, который читается при изначальном запуске
+        /// </summary>
+        /// <param name="path"> путь </param>
+        /// <param name="cities"> города </param>
+        /// <exception cref="ArgumentNullException"> при некорректном пути </exception>
         public static void SaveToFile(string path, Cities cities)
         {
             if (path == null || !FileMethods.IsValidFullPath(path))
@@ -59,7 +65,12 @@ namespace ProjectLib
             File.WriteAllText(path, sb.ToString());
         }
 
-
+        /// <summary>
+        /// Запись в CSV-файл
+        /// </summary>
+        /// <param name="path">путь </param>
+        /// <param name="cities"> города </param>
+        /// <exception cref="ArgumentNullException"> при некорректном пути</exception>
         public static void WriteToCsv(string path, Cities cities)
         {
 
@@ -79,6 +90,11 @@ namespace ProjectLib
             
         }
 
+        /// <summary>
+        /// Чтение из CSV-файла
+        /// </summary>
+        /// <param name="path">путь</param>
+        /// <returns> города </returns>
         public static Cities ReadCsv(string path)
         {
             string[] lines = File.ReadAllLines(path);
@@ -97,6 +113,12 @@ namespace ProjectLib
             return new Cities(cities);
         }
 
+        /// <summary>
+        /// Запись в формат JSON
+        /// </summary>
+        /// <param name="path"> путь </param>
+        /// <param name="cities"> города </param>
+        /// <exception cref="ArgumentNullException"> при некорректном пути</exception>
         public static void WriteToJson(string path, Cities cities)
         {
             

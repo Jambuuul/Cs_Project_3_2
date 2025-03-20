@@ -7,8 +7,15 @@ using System.Threading.Tasks;
 
 namespace ProjectLib
 {
-    public class MapViewer
+    /// <summary>
+    /// Класс для вывода карты
+    /// </summary>
+    public static class MapViewer
     {
+        /// <summary>
+        /// Запуск
+        /// </summary>
+        /// <param name="cities"> города </param>
         public static void Run(ref Cities cities)
         {
             int consoleWidth = 120;

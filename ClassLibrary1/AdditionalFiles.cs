@@ -7,8 +7,15 @@ using System.Threading.Tasks;
 
 namespace ProjectLib
 {
+    /// <summary>
+    /// Класс для экспорта/импорта файлов
+    /// </summary>
     public static class AdditionalFiles
     {
+
+        /// <summary>
+        /// меню
+        /// </summary>
         public static void Menu()
         {
             Console.WriteLine("Работа с файлами:");
@@ -22,6 +29,10 @@ namespace ProjectLib
             Console.Write("Выберите опцию: ");
         }
 
+        /// <summary>
+        /// Запуск
+        /// </summary>
+        /// <param name="cities"> города </param>
         public static void Run(ref Cities cities)
         {
             while (true)
@@ -54,6 +65,10 @@ namespace ProjectLib
             }
         }
 
+        /// <summary>
+        /// Чтение из CSV
+        /// </summary>
+        /// <param name="cites"> города </param>
         public static void ReadCsv(ref Cities cites)
         {
             string path = InputPath();
@@ -71,6 +86,10 @@ namespace ProjectLib
             }
         }
 
+        /// <summary>
+        /// Запись в CSV
+        /// </summary>
+        /// <param name="cities"> города </param>
         public static void WriteToCsv(ref Cities cities)
         {
             string path = InputPath();
@@ -90,6 +109,10 @@ namespace ProjectLib
 
         }
 
+        /// <summary>
+        /// Запись в JSON
+        /// </summary>
+        /// <param name="cities"> города </param>
         public static void WriteToJson(ref Cities cities)
         {
             string path = InputPath();
@@ -108,6 +131,10 @@ namespace ProjectLib
             }
         }
 
+        /// <summary>
+        /// Запрашивает путь у пользователя, проверяет его
+        /// </summary>
+        /// <returns> путь </returns>
         public static string InputPath()
         {
             while (true)

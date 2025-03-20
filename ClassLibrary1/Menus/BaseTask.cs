@@ -7,8 +7,14 @@ using System.Threading.Tasks;
 
 namespace ProjectLib
 {
-    public class BaseTask
+    /// <summary>
+    /// Класс для базовой части
+    /// </summary>
+    public static class BaseTask
     {
+        /// <summary>
+        /// Меню
+        /// </summary>
         public static void BaseMenu()
         {
             Console.WriteLine("Базовый функционал приложения:");
@@ -23,6 +29,11 @@ namespace ProjectLib
             Console.Write("Выберите опцию: ");
         }
 
+        /// <summary>
+        /// Запуск
+        /// </summary>
+        /// <param name="cities"> города </param>
+        /// <param name="path"> путь изначального файла</param>
         public static void Run(ref Cities cities, string path)
         {
             while (true)
@@ -64,6 +75,10 @@ namespace ProjectLib
             }
         }
 
+        /// <summary>
+        /// Редактирование по названию города
+        /// </summary>
+        /// <param name="cities"> города </param>
         public static void RedactCity(ref Cities cities)
         {
             Console.Write("Введите имя города:");
@@ -108,6 +123,10 @@ namespace ProjectLib
             return;
         }
 
+        /// <summary>
+        /// добавление города
+        /// </summary>
+        /// <param name="cities"> города </param>
         public static void AddCity(ref Cities cities)
         {
             Console.Clear();
@@ -121,7 +140,11 @@ namespace ProjectLib
             }
             cities.AddCity(city);
         }
-
+        
+        /// <summary>
+        /// Удаление города
+        /// </summary>
+        /// <param name="cities"> города </param>
         public static void DeleteCity(ref Cities cities)
         {
             Console.Clear();

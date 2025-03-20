@@ -7,8 +7,14 @@ using System.Threading.Tasks;
 
 namespace ProjectLib
 {
+    /// <summary>
+    /// Класс для основной части 
+    /// </summary>
     public static class MainTask
     {
+        /// <summary>
+        /// Меню
+        /// </summary>
         public static void MainTaskMenu()
         {
             Console.WriteLine("Основной функционал:");
@@ -19,6 +25,12 @@ namespace ProjectLib
 
             Console.Write("Выберите опцию: ");
         }
+
+
+        /// <summary>
+        /// Запуск
+        /// </summary>
+        /// <param name="cities">города</param>
         public static void Run(ref Cities cities)
         {
             while (true)

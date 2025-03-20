@@ -8,6 +8,9 @@ using System.Text.Json.Serialization;
 
 namespace ProjectLib
 {
+    /// <summary>
+    /// Класс для работы с API погоды
+    /// </summary>
     public class WeatherManager
     {
 
@@ -44,6 +47,11 @@ namespace ProjectLib
             }
         }
 
+        /// <summary>
+        /// Асинхронный метод вывода информации о погоде
+        /// </summary>
+        /// <param name="city"> город </param>
+        /// <returns></returns>
         public static async Task DisplayWeather(string city)
         {
             try

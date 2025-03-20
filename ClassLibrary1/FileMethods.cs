@@ -37,6 +37,9 @@ namespace ProjectLib
             }
         }
 
+        /// <summary>
+        /// Запрос ввода пользователя для продолжения
+        /// </summary>
         public static void AskForInput()
         {
             Console.WriteLine("Введите Enter для продолжения...");
