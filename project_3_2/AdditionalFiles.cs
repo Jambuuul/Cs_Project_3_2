@@ -35,6 +35,8 @@ namespace project_3_2
                         WriteToCsv(ref cities);
                         Program.AskForInput(); break;
                     case "2":
+                        WriteToJson(ref cities);
+                        Program.AskForInput();
                         break;
                     case "3":
                         ReadCsv(ref cities);
@@ -84,6 +86,23 @@ namespace project_3_2
                 Console.WriteLine($"Файл не удалось сохранить: {e.Message}");
             }
 
+        }
+
+        public static void WriteToJson(ref Cities cities)
+        {
+            string path = InputPath();
+            if (path == "")
+            {
+                return;
+            }
+            try
+            {
+                FileManager.WriteToJson(path, cities);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Файл не удалось сохранить: {e.Message}");
+            }
         }
 
         public static string InputPath()

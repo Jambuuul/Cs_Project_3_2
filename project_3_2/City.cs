@@ -110,11 +110,11 @@ namespace project_3_2
         {
             StringBuilder sb = new();
             _ = sb.Append('{');
-            _ = sb.Append($"Name : {Name}," +
-                          $"Country: {Country}," +
-                          $"Latitude: {Latitude}," +
-                          $"Longitude: {Longitude}," +
-                          $"Population: {Population}");
+            _ = sb.Append($"\"Name\" : \"{Name}\"," +
+                          $"\"Country\": \"{Country}\"," +
+                          $"\"Latitude\": \"{Latitude}\"," +
+                          $"\"Longitude\": \"{Longitude}\"," +
+                          $"\"Population\": \"{Population}\"");
             _ = sb.Append('}');
 
             return sb.ToString();

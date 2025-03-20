@@ -96,24 +96,33 @@ namespace project_3_2
             return new Cities(cities);
         }
 
-        public static void WriteToJson(string path)
+        public static void WriteToJson(string path, Cities cities)
         {
-            //StringBuilder sb = new();
-            //_ = sb.Append("{");
+            
+            if (path == null || !FileMethods.IsValidFullPath(path))
+            {
+                throw new ArgumentNullException("Некорректный путь");
+            }
+            
+            StringBuilder sb = new();
+            _ = sb.Append("{");
+            
+            _ = sb.Append("\"cities\":");
+            _ = sb.Append('[');
 
-            //for (int i = 0; i < _data.Keys.Count; i++)
-            //{
-            //    string[] keys = [.. _data.Keys];
-            //    JsonValue val = _data[keys[i]];
-            //    _ = sb.Append($"\"{keys[i]}\" : {val}");
-            //    if (i != keys.Length - 1)
-            //    {
-            //        _ = sb.Append(",");
-            //    }
-            //}
+            for (int i = 0; i < cities.Count(); i++)
+            {
+                
+                _ = sb.Append(cities.ElementAt(i).ToJsonObject());
+                if (i != cities.Count() - 1)
+                {
+                    _ = sb.Append(",");
+                }
+            }
 
-            //_ = sb.Append("}");
-            //return sb.ToString();
+            _ = sb.Append(']');
+            _ = sb.Append("}");
+            File.WriteAllText(path, sb.ToString());
         }
     }
 }
