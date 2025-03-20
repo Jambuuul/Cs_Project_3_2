@@ -8,14 +8,14 @@ namespace project_3_2
 {
     public class MapViewer
     {
-        public static void Run()
+        public static void Run(ref Cities cities)
         {
             int consoleWidth = 120;
             int consoleHeight = 30;
             Console.SetWindowSize(consoleWidth, consoleHeight);
             Console.Clear();
 
-            // Создаем буфер для карты
+            
             char[,] mapBuffer = new char[consoleWidth, consoleHeight];
 
             // Заполняем карту (вода и суша)
@@ -23,89 +23,59 @@ namespace project_3_2
             {
                 for (int x = 0; x < consoleWidth; x++)
                 {
-                    mapBuffer[x, y] = IsLand(x, y, consoleWidth, consoleHeight) ? '█' : ' ';
+                    mapBuffer[x, y] = ' ';
                 }
             }
+            
 
-            // Выводим ASCII-карту
             Console.ForegroundColor = ConsoleColor.DarkBlue;
             for (int y = 0; y < consoleHeight; y++)
             {
                 Console.SetCursorPosition(0, y);
-                StringBuilder line = new StringBuilder();
+                StringBuilder line = new();
                 for (int x = 0; x < consoleWidth; x++)
                 {
-                    line.Append(mapBuffer[x, y]);
+                    _ = line.Append(mapBuffer[x, y]);
                 }
                 Console.Write(line);
             }
 
-            // Координаты городов
-            var cities = new List<Tuple<double, double, char>>
-            {
-                Tuple.Create(48.8566, 2.3522, 'P'), // Париж
-                Tuple.Create(40.7128, -74.0060, 'N'), // Нью-Йорк
-                Tuple.Create(-23.5505, -46.6333, 'S'), // Сан-Паулу
-                Tuple.Create(35.6895, 139.6917, 'T')  // Токио
-            };
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.SetCursorPosition(0, 0);
+            Console.Write(new string('═', consoleWidth));
+            Console.SetCursorPosition(0, consoleHeight - 2);
+            Console.Write(new string('═', consoleWidth));
+
+            Console.SetCursorPosition((consoleWidth / 2) - 2, 1);
+            Console.Write("[N]");
+            Console.SetCursorPosition((consoleWidth / 2) - 2, consoleHeight - 3);
+            Console.Write("[S]");
+            Console.SetCursorPosition(2, (consoleHeight / 2) - 1);
+            Console.Write("[W]");
+            Console.SetCursorPosition(consoleWidth - 5, (consoleHeight / 2) - 1);
+            Console.Write("[E]");
+
 
             // Отмечаем города поверх карты
             Console.ForegroundColor = ConsoleColor.Red;
-            foreach (var city in cities)
+            foreach (City city in cities)
             {
-                int x = (int)Math.Round((city.Item2 + 180) * (consoleWidth - 1) / 360.0);
-                int y = (int)Math.Round((90 - city.Item1) * (consoleHeight - 1) / 180.0);
+                int x = (int)Math.Round((city.Longitude + 180) * (consoleWidth - 1) / 360.0);
+                int y = (int)Math.Round((90 - city.Latitude) * (consoleHeight - 1) / 180.0);
 
                 x = Math.Clamp(x, 0, consoleWidth - 1);
                 y = Math.Clamp(y, 0, consoleHeight - 1);
 
+                y += 1;
+
                 Console.SetCursorPosition(x, y);
-                Console.Write(city.Item3);
+                char letter = city.Name.Length == 0 ? '?' : city.Name[0];
+                Console.Write(letter);
             }
 
             Console.SetCursorPosition(0, consoleHeight - 1);
             Console.ResetColor();
-            Console.WriteLine("Карта мира: █ - суша, метки городов выделены цветом");
-            _ = Console.ReadLine();
         }
 
-        // Упрощенная проверка на принадлежность к суше
-        private static bool IsLand(int x, int y, int width, int height)
-        {
-            double lon = (x * 360.0 / width) - 180;
-            double lat = 90 - (y * 180.0 / height);
-
-            // Северная Америка
-            if (lat > 10 && lat < 70 && lon > -130 && lon < -60)
-            {
-                return true;
-            }
-
-            // Южная Америка
-            if (lat > -56 && lat < 12 && lon > -85 && lon < -30)
-            {
-                return true;
-            }
-
-            // Европа/Азия
-            if (lat > 35 && lat < 75 && lon > -20 && lon < 140)
-            {
-                return true;
-            }
-
-            // Африка
-            if (lat > -35 && lat < 35 && lon > -20 && lon < 55)
-            {
-                return true;
-            }
-
-            // Австралия
-            if (lat > -45 && lat < -10 && lon > 110 && lon < 155)
-            {
-                return true;
-            }
-
-            return false;
-        }
     }
 }
