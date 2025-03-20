@@ -24,6 +24,8 @@ namespace project_3_2
         {
             Cities cities;
 
+            string? path;
+
             while (true)
             {
                 try
@@ -31,19 +33,19 @@ namespace project_3_2
                     Console.Clear();
                     Console.Write("Перед началом работы введите путь к файлу,\n" +
                         "или пустую строку для выхода: ");
-                    string? input = Console.ReadLine();
-                    if (input == null)
+                    path = Console.ReadLine();
+                    if (path == null)
                     {
                         Console.WriteLine("Некорректный путь!");
                         AskForInput();
                         continue;
                     }
-                    if (input == "")
+                    if (path == "")
                     {
                         System.Environment.Exit(0);
                     }
 
-                    cities = FileManager.ReadFile(input);
+                    cities = FileManager.ReadFile(path);
                     break;
                 } catch (Exception e)
                 {
@@ -63,7 +65,7 @@ namespace project_3_2
                 switch (input)
                 {
                     case "1":
-                        BaseTask.Run(ref cities); break;
+                        BaseTask.Run(ref cities, path); break;
                     case "2":
                         MainTask.Run(ref cities); break;
                     case "3":

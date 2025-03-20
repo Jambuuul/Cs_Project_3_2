@@ -70,25 +70,40 @@ namespace project_3_2
         }
 
         // Упрощенная проверка на принадлежность к суше
-        static bool IsLand(int x, int y, int width, int height)
+        private static bool IsLand(int x, int y, int width, int height)
         {
             double lon = (x * 360.0 / width) - 180;
             double lat = 90 - (y * 180.0 / height);
 
             // Северная Америка
-            if (lat > 10 && lat < 70 && lon > -130 && lon < -60) return true;
+            if (lat > 10 && lat < 70 && lon > -130 && lon < -60)
+            {
+                return true;
+            }
 
             // Южная Америка
-            if (lat > -56 && lat < 12 && lon > -85 && lon < -30) return true;
+            if (lat > -56 && lat < 12 && lon > -85 && lon < -30)
+            {
+                return true;
+            }
 
             // Европа/Азия
-            if (lat > 35 && lat < 75 && lon > -20 && lon < 140) return true;
+            if (lat > 35 && lat < 75 && lon > -20 && lon < 140)
+            {
+                return true;
+            }
 
             // Африка
-            if (lat > -35 && lat < 35 && lon > -20 && lon < 55) return true;
+            if (lat > -35 && lat < 35 && lon > -20 && lon < 55)
+            {
+                return true;
+            }
 
             // Австралия
-            if (lat > -45 && lat < -10 && lon > 110 && lon < 155) return true;
+            if (lat > -45 && lat < -10 && lon > 110 && lon < 155)
+            {
+                return true;
+            }
 
             return false;
         }

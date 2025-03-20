@@ -16,12 +16,13 @@ namespace project_3_2.Menus
                 "2. Добавление нового города\n" +
                 "3. Редактирование информации о городе\n" +
                 "4. Удаление города\n" +
-                "5. Выход в главное меню");
+                "5. Сохранить обратно в файл\n" +
+                "6. Выход в главное меню");
 
             Console.Write("Выберите опцию: ");
         }
 
-        public static void Run(ref Cities cities)
+        public static void Run(ref Cities cities, string path)
         {
             while (true)
             {
@@ -48,6 +49,11 @@ namespace project_3_2.Menus
                         DeleteCity(ref cities);
                         break;
                     case "5":
+                        FileManager.SaveToFile(path, cities);
+                        Console.WriteLine("Файл успешно сохранен!");
+                        Program.AskForInput(); 
+                        break;
+                    case "6":
                         return;
                     default:
                         Console.WriteLine("Некорректная команда!");

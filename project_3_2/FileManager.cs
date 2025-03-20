@@ -42,6 +42,22 @@ namespace project_3_2
 
         }
 
+        public static void SaveToFile(string path, Cities cities)
+        {
+            if (path == null || !FileMethods.IsValidFullPath(path))
+            {
+                throw new ArgumentNullException("Некорректный путь");
+            }
+            
+            StringBuilder sb = new();
+            foreach (City city in cities)
+            {
+                sb.AppendLine(city.ToCsvString()); 
+            }
+            
+            File.WriteAllText(path, sb.ToString());
+        }
+
 
         public static void WriteToCsv(string path, Cities cities)
         {
