@@ -123,6 +123,8 @@ namespace project_3_2
             _ = sb.Append(']');
             _ = sb.Append("}");
             File.WriteAllText(path, sb.ToString());
+            
+            Console.WriteLine("Файл успешно сохранен!");
         }
     }
 }

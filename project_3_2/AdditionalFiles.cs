@@ -75,6 +75,7 @@ namespace project_3_2
             string path = InputPath();
             if (path == "")
             {
+                Console.WriteLine("Ошибка при вводе пути");
                 return;
             }
             try
@@ -93,6 +94,7 @@ namespace project_3_2
             string path = InputPath();
             if (path == "")
             {
+                Console.WriteLine("Ошибка при вводе пути");
                 return;
             }
             try

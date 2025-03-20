@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -23,7 +24,13 @@ namespace project_3_2
             {
                 // вызывет исключение, если путь неправильный
                 string fullPath = Path.GetFullPath(path);
-                return File.Exists(fullPath);
+                if (File.Exists(fullPath)) 
+                {
+                    return true;
+                }
+
+                File.WriteAllText(fullPath, string.Empty);
+                return true;
             }
             catch (Exception)
             {
