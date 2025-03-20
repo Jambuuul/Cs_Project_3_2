@@ -18,7 +18,7 @@ namespace project_3_2
             
             char[,] mapBuffer = new char[consoleWidth, consoleHeight];
 
-            // Заполняем карту (вода и суша)
+
             for (int y = 0; y < consoleHeight; y++)
             {
                 for (int x = 0; x < consoleWidth; x++)
@@ -26,19 +26,7 @@ namespace project_3_2
                     mapBuffer[x, y] = ' ';
                 }
             }
-            
 
-            Console.ForegroundColor = ConsoleColor.DarkBlue;
-            for (int y = 0; y < consoleHeight; y++)
-            {
-                Console.SetCursorPosition(0, y);
-                StringBuilder line = new();
-                for (int x = 0; x < consoleWidth; x++)
-                {
-                    _ = line.Append(mapBuffer[x, y]);
-                }
-                Console.Write(line);
-            }
 
             Console.ForegroundColor = ConsoleColor.White;
             Console.SetCursorPosition(0, 0);
@@ -56,7 +44,6 @@ namespace project_3_2
             Console.Write("[E]");
 
 
-            // Отмечаем города поверх карты
             Console.ForegroundColor = ConsoleColor.Red;
             foreach (City city in cities)
             {
